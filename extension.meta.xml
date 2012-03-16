@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension id="encrypted_input" status="released" xmlns="http://symphony-cms.com/schemas/extension/1.0">
+	<name>Encrypted Input</name>
+	<description>Encrypts text fields using `mcrypt` to keep them safe.</description>
+	<repo type="github">https://github.com/symphonists/encrypted_input</repo>
+	<types>
+		<type>Security</type>
+	</types>
+	<authors>
+		<author>
+			<name github="nickdunn" symphony="nickdunn">Nick Dunn</name>
+			<website>http://nick-dunn.co.uk</website>
+		</author>
+	</authors>
+	<releases>
+		<release version="1.0.0" date="2012-03-16" min="2.2.x" max="2.2.x" />
+	</releases>
+</extension>

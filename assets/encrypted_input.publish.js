@@ -1,7 +1,7 @@
 jQuery(function() {
-	jQuery('.field-mcrypt_input').each(function() {		
+	jQuery('.field-encrypted_input.file').each(function() {		
 		// masquerade as a file upload for styling purposes
-		var field = jQuery(this).addClass('file');
+		var field = jQuery(this);
 		var frame = jQuery(this).find('.frame');
 		var action = jQuery('<em>Change</em>').appendTo(frame);
 		action.bind('click', function(e) {
