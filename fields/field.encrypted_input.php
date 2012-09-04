@@ -2,8 +2,8 @@
 	
 	Class FieldEncrypted_Input extends Field {
 		
-		function __construct(&$parent){
-			parent::__construct($parent);
+		function __construct(){
+			parent::__construct();
 			$this->_name = 'Encrypted Input';
 			$this->_required = TRUE;
 			$this->set('required', 'yes');
@@ -72,7 +72,7 @@
 			return self::__OK__;
 		}
 
-		public function processRawFieldData($data, &$status, $simulate=false, $entry_id=null) {
+		public function processRawFieldData($data, &$status, &$message=null, $simulate=false, $entry_id=null) {
 			$status = self::__OK__;
 			
 			// store empty (NULL) value without encryption if the field is optional

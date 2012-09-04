@@ -16,7 +16,7 @@
 		
 		public function install() {
 			// create suitable salt
-			Symphony::Configuration()->set('salt', General::generatePassword() , 'encrypted_input');
+			Symphony::Configuration()->set('salt', self::generatePassword() , 'encrypted_input');
 			Administration::instance()->saveConfig();
 			// create settings table
 			return Symphony::Database()->query("CREATE TABLE `tbl_fields_encrypted_input` (
@@ -70,6 +70,42 @@
 			$group->appendChild($label);
 
 			$context['wrapper']->appendChild($group);
+		}
+		
+		public static function generatePassword(){
+
+			$words = array(
+				array(
+					__('Large'),
+					__('Small'),
+					__('Hot'),
+					__('Cold'),
+					__('Big'),
+					__('Hairy'),
+					__('Round'),
+					__('Lumpy'),
+					__('Coconut'),
+					__('Encumbered')
+				),
+
+				array(
+					__('Cats'),
+					__('Dogs'),
+					__('Weasels'),
+					__('Birds'),
+					__('Worms'),
+					__('Bugs'),
+					__('Pigs'),
+					__('Monkeys'),
+					__('Pirates'),
+					__('Aardvarks'),
+					__('Men'),
+					__('Women')
+				)
+			);
+
+			return (rand(2, 15) . $words[0][rand(0, count($words[0]) - 1)] . $words[1][rand(0, count($words[1]) - 1)]);
+
 		}
 			
 	}
