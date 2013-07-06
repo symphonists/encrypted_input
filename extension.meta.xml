@@ -8,6 +8,9 @@
 	</types>
 	<authors>
 		<author>
+			<name github="symphonists" symphony="community">Symphony Community</name>
+		</author>
+		<author>
 			<name github="nickdunn" symphony="nickdunn">Nick Dunn</name>
 			<website>http://nick-dunn.co.uk</website>
 		</author>
