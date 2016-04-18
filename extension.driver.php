@@ -17,7 +17,7 @@
 		public function install() {
 			// create suitable salt
 			Symphony::Configuration()->set('salt', self::generatePassword() , 'encrypted_input');
-			Administration::instance()->saveConfig();
+			Symphony::Configuration()->write();
 			// create settings table
 			return Symphony::Database()->query("CREATE TABLE `tbl_fields_encrypted_input` (
 			  `id` int(11) unsigned NOT NULL auto_increment,
@@ -30,7 +30,7 @@
 		public function uninstall() {
 			// remove config
 			Symphony::Configuration()->remove('encrypted_input');			
-			Administration::instance()->saveConfig();
+			Symphony::Configuration()->write();
 			// remove field settings
 			Symphony::Database()->query("DROP TABLE `tbl_fields_encrypted_input`");
 		}
