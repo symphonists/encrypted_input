@@ -3,7 +3,7 @@
 	<name>Encrypted Input</name>
 	<description>Encrypts text fields using `mcrypt` to keep them safe.</description>
 	<repo type="github">https://github.com/symphonists/encrypted_input</repo>
-	<link type="issues">https://github.com/symphonists/encrypted_input/issues</repo>
+	<link type="issues">https://github.com/symphonists/encrypted_input/issues</link>
 	<types>
 		<type>Security</type>
 		<type>Encryption</type>
