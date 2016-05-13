@@ -18,8 +18,11 @@
 		</author>
 	</authors>
 	<releases>
+		<release version="1.2.1" date="2016-05-17" min="2.3.0" max="2.x.x">
+			- further 2.3+ Support
+		</release>
 		<release version="1.2.0" date="2016-04-18" min="2.3.0" max="2.x.x" />
-		<release version="1.1.0" date="2012-09-04" min="2.3" />
+		<release version="1.1.0" date="2012-09-04" min="2.3.0" max="2.x.x" />
 		<release version="1.0.0" date="2012-03-16" min="2.2.x" max="2.2.x" />
 	</releases>
 </extension>
