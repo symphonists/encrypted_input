@@ -1,7 +1,7 @@
 <?php
 
 	Class extension_encrypted_input extends Extension{
-	
+
 		public function about() {
 			return array(
 				'name' => 'Field: Encrypted Input',
@@ -13,28 +13,28 @@
 				)
 			);
 		}
-		
+
 		public function install() {
 			// create suitable salt
 			Symphony::Configuration()->set('salt', self::generatePassword() , 'encrypted_input');
 			Symphony::Configuration()->write();
 			// create settings table
 			return Symphony::Database()->query("CREATE TABLE `tbl_fields_encrypted_input` (
-			  `id` int(11) unsigned NOT NULL auto_increment,
-			  `field_id` int(11) unsigned NOT NULL,
+			  `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+			  `field_id` INT(11) UNSIGNED NOT NULL,
 			  PRIMARY KEY  (`id`),
 			  UNIQUE KEY `field_id` (`field_id`)
 			) TYPE=MyISAM");
 		}
-		
+
 		public function uninstall() {
 			// remove config
-			Symphony::Configuration()->remove('encrypted_input');			
+			Symphony::Configuration()->remove('encrypted_input');
 			Symphony::Configuration()->write();
 			// remove field settings
 			Symphony::Database()->query("DROP TABLE `tbl_fields_encrypted_input`");
 		}
-		
+
 		public function getSubscribedDelegates() {
 			return array(
 				array(
@@ -49,16 +49,16 @@
 				)
 			);
 		}
-		
+
 		public function initaliseAdminPageHead($context) {
 			$page = Administration::instance()->Page;
 			$callback = Administration::instance()->getPageCallback();
-			
+
 			if ($page instanceOf contentPublish && in_array($callback['context']['page'], array('edit', 'new'))) {
 				Administration::instance()->Page->addScriptToHead(URL . '/extensions/encrypted_input/assets/encrypted_input.publish.js', 300);
 			}
 		}
-		
+
 		public function appendPreferences($context) {
 			$group = new XMLElement('fieldset');
 			$group->setAttribute('class', 'settings');
@@ -71,7 +71,7 @@
 
 			$context['wrapper']->appendChild($group);
 		}
-		
+
 		public static function generatePassword(){
 
 			$words = array(
@@ -107,5 +107,5 @@
 			return (rand(2, 15) . $words[0][rand(0, count($words[0]) - 1)] . $words[1][rand(0, count($words[1]) - 1)]);
 
 		}
-			
+
 	}
