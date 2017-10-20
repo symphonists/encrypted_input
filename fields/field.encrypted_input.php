@@ -31,7 +31,6 @@
 		}
 
 		public function displayPublishPanel(XMLElement &$wrapper, $data = null, $flagWithError = null, $fieldnamePrefix = null, $fieldnamePostfix = null, $entry_id = null){
-
 			$value = General::sanitize($data['value']);
 			$label = Widget::Label($this->get('label'));
 
@@ -52,7 +51,7 @@
 
 		}
 
-		function appendFormattedElement(XMLElement &$wrapper, $data, $encode = false, $mode = null, $entry_id = null){
+		public function appendFormattedElement(XMLElement &$wrapper, $data, $encode = false, $mode = null, $entry_id = null){
 			if(!is_array($data) || empty($data['value'])) return;
 
 			$value = $this->decrypt($data['value']);
